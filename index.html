@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style type="text/css">
+  body,html {
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: #222224;
+  overflow-x: hidden;
+  transition: 1s;
+}
+.overlay-content {
+  position: relative;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 50px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  height: 150px;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #44BD32;
+  margin-top: -40px;
+}
+
+.overlay .closebtn1 {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+
+.overlay1 {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 33%;
+  background-color: rgb(0,0,0);
+  background-color: #171719;
+  overflow-x: hidden;
+  transition: 1.3s;
+}
+.overlay-content1 {
+  position: relative;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay1 a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 55px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  height: 150px;
+}
+
+.overlay1 a:hover, .overlay1 a:focus {
+  color: #44BD32;
+  margin-top: -40px;
+}
+.overlay2 {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 66%;
+  background-color: rgb(0,0,0);
+  background-color: #000000;
+  overflow-x: hidden;
+  transition: 1.5s;
+}
+.overlay-content2 {
+  position: relative;
+  top: 12%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay2 a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 55px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  height: 150px;
+}
+
+.overlay-content2 a:hover, .overlay-content2 a:focus {
+  color: #44BD32;
+  margin-top: -40px;
+}
+#text{
+  color: #44BD32;
+  display: none;
+}
+.overlay-content:hover #text{
+  display: block;
+}
+.overlay-content1:hover #text{
+  display: block;
+}
+.overlay-content2:hover #text{
+  display: block;
+}
+.overlay-mobile {
+  height: 33%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: #222224;
+  overflow-x: hidden;
+  transition: 1s;
+}
+
+.overlay-mobilecontent {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay-mobile a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 42px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay-mobile a:hover, .overlay-mobile a:focus {
+  color: #44BD32;
+}
+
+.overlay-mobile .closebtn-mobile {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+.overlay-mobile1 {
+  height: 33%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 33%;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: #171719;
+  overflow-x: hidden;
+  transition: 1.3s;
+}
+
+.overlay-mobilecontent1 {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay-mobile1 a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 42px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay-mobile1 a:hover, .overlay-mobile1 a:focus {
+  color: #44BD32;
+}
+.overlay-mobile2 {
+  height: 33%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 66%;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: #000000;
+  overflow-x: hidden;
+  transition: 1.5s;
+}
+
+.overlay-mobilecontent2 {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay-mobile2 a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 42px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay-mobile2 a:hover, .overlay-mobile2 a:focus {
+  color: #44BD32;
+}
+#mobile{
+  display: none;
+}
+#mob-menu{
+	display: none;
+}
+@media screen and (max-width:900px){
+  #desktop{
+    display: none;
+  }
+  #mobile{
+    display: block;
+  }
+  #menu{
+  	display: none;
+  }
+  #heading2,#heading3{
+  	font-size: 18px;
+  }
+  #heading1{
+  	font-size: 10px;
+  }
+  #mob-menu{
+  	display: block;
+  }
+  #sec1,#sec2,#sec3,#sec4{
+  	margin-bottom: 30px;
+  }
+  #plus{
+  	display: none;
+  }
+
+}
+#menu:hover {
+	background-color: #44BD32;
+	transition: .5s; 
+
+}
+#mob-menu:hover {
+	background-color: #44BD32;
+	transition: .5s;
+}
+.container-fluid {
+  position: relative;
+  text-align: center;
+  color: white;
+  padding: 0px;
+  margin: 0px;
+}
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  float: left;
+}
+#heading1{
+	font-size: 70px;
+	font-family: monospace;
+}
+#heading2{
+	color: #44BD32;
+	font-family: cursive;
+
+}
+#heading3{
+	color: #44BD32;
+	font-family: cursive;
+}
+#parallex{
+	background: url(images/parallex.png) fixed;
+	width: 0 auto;
+	height: 0 auto;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.parallex1{
+	background: url(images/parallex.png) fixed;
+	width: 0 auto;
+	height: 0 auto;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+#heading4{
+	font-size: 24px;
+}
+#glyphicon{
+	color: white; 
+	font-size: 50px; 
+	border: 2px solid white;
+	padding: 7%;
+	border-radius: 50%;
+}
+#sec1:hover #glyphicon{
+	background-color: white;
+	color: black;
+	transition: .8s;
+}
+#sec2:hover #glyphicon{
+	background-color: white;
+	color: black;
+	transition: .8s;
+}
+#sec3:hover #glyphicon{
+	background-color: white;
+	color: black;
+	transition: .8s;
+}
+#glyphicon-section1
+{
+	color: white; 
+	font-size: 50px;
+	padding: 10% 0% 4% 0%;
+}
+#sec4{
+	border-radius: 10px;
+	width: 100%;
+	height: 350px;
+}
+.container-fluid{
+	background-image: url("images/download.png");
+  /* Full height */
+  height: 100%; 
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #071348;
+}
+tbody tr:hover{
+	background-color: white;
+	color: grey;
+	transition: 0.5s;
+}
+.hidden1{
+	display: none;
+}
+.hidden2{
+	display: none;
+}
+.hidden3{
+	display: none;
+}
+.hidden4{
+	display: none;
+}
+.hidden5{
+	display: none;
+}
+</style>
+</head>
+<body>
+	<div class="container-fluid">
+	<div class="top-left">
+	<a class="navbar-brand" href="index.html">
+		<img src="images/logo1.png" class="img-fluid" alt="" width="200" height="100" />
+	</a>
+	</div>
+	<div class="top-right">
+	<b><span style="font-size:35px;cursor:pointer; float: right; border: 3px solid green; padding-left: 40px; padding-right: 40px; padding-top: -5px;padding-bottom: -5px; border-radius: 10px; margin-right: 20px; margin-top: 10px;" id="menu" onclick="openNav()">&#9776; </span></b>
+	<b><span style="font-size:35px;cursor:pointer; float: right; border: 2px solid green; padding-left: 20px; padding-right: 20px; border-radius: 10px; margin-top: 20px; margin-right: 20px;" id="mob-menu" onclick="openNavmobile()">&#9776; </span></b>
+	</div>
+	<div class="centered">
+		<h1 id="heading1">FASTEST CONTRACT MATRIX</h1>
+		<h3 id="heading2"><b>THE SMARTEST, FASTEST, EASIEST AND RISK-FREE WAY TO EARN</b></h3>
+		<h2 id="heading3"><b>17+ ETH EVERY 100 DAYS STARTING WITH JUST $1 IN ETH</b></h2>
+	</div>
+	</div>
+  <div id="desktop">
+  <div id="myNav" class="overlay">
+  <div class="overlay-content">
+   <b><a href="#section1" onclick="closeNav()">How it works</a></b>
+   <b style="font-size: 19px;"><span id="text">Everyone can have an honest income</span></b>
+  </div>
+</div>
+  <div id="myNav1" class="overlay1">
+  <div class="overlay-content1">
+    <b><a href="#section2" onclick="closeNav()">Pay Plans</a></b>
+    <b style="font-size: 19px;" ><span id="text">Marketing Plan</span></b>
+  </div>
+</div>
+  <div id="myNav2" class="overlay2">
+    <a href="javascript:void(0)" class="closebtn1" onclick="closeNav()">&times;</a>
+  <div class="overlay-content2">
+    <b><a href="#section3"onclick="closeNav()">About</a></b>
+    <b style="font-size: 19px;"><span id="text">Autoetherbot Is An Unique Combination</span></b>
+  </div>
+</div>
+</div>
+<div id="mobile">
+<div id="myNav-mobile" class="overlay-mobile">
+  <a href="javascript:void(0)" class="closebtn-mobile" onclick="closeNavmobile()">&times;</a>
+  <div class="overlay-mobilecontent">
+    <b><a href="#section1" onclick="closeNavmobile()">Work</a></b>
+  </div>
+</div>
+<div id="myNav-mobile1" class="overlay-mobile1">
+  <div class="overlay-mobilecontent1">
+    <b><a href="#section2" onclick="closeNavmobile()">Plans</a></b>
+  </div>
+</div>
+<div id="myNav-mobile2" class="overlay-mobile2">
+  <div class="overlay-mobilecontent2">
+   <b> <a href="#section3" onclick="closeNavmobile()">About</a></b>
+  </div>
+</div>
+
+</div>
+<div id="parallex" style="overflow-x: hidden;">
+<div class="row" class="inc">
+  <div class="col-md-3 col-sm-6" align="center" style="color: white; margin-top: 7%; margin-bottom: 6%;">
+    <p style="font-size: 45px; font-family: monospace; ">
+      <span class='numscroller' data-min='1' data-max='35912' data-delay='5' data-increment='101'>35912</span>
+    </p>
+    <p style="font-size: 20px;">
+      Total Participants
+    </p>
+  </div>
+  <div class="col-md-3 col-sm-6" align="center" style="color: white; margin-top: 7%; margin-bottom: 6%;">
+    <p style="font-size: 45px; font-family: monospace; ">
+      <span class='numscroller' data-min='1' data-max='368' data-delay='1.5' data-increment='1'>368</span>
+    </p>
+    <p style="font-size: 20px;">
+      People Registered Today
+    </p>
+  </div>
+  <div class="col-md-3 col-sm-6" align="center" style="color: white; margin-top: 7%; margin-bottom: 6%;">
+    <p style="font-size: 45px; font-family: monospace; ">
+      <span class='numscroller' data-min='1' data-max='409.62' data-delay='1' data-increment='1'>409.62</span> ETH
+    </p>
+    <p style="font-size: 20px;">
+      Total Earned
+    </p>
+  </div>
+  <div class="col-md-3 col-sm-6" align="center" style="color: white; margin-top: 7%; margin-bottom: 6%;">
+    <p style="font-size: 45px; font-family: monospace; ">
+       <span class='numscroller' data-min='1' data-max='4.23' data-delay='4' data-increment='1'>4.23</span> ETH
+    </p>
+    <p style="font-size: 20px;">
+      Earned Today
+    </p>
+  </div>
+  
+</div>
+</div>
+<section style="background-color: #202C8A; margin-top: 0%; padding-bottom: 10%; overflow-x: hidden;">
+  <div align="center">
+    <h4 style=" margin: 0%; color: #44BD32; padding-top: 8%;" id="heading4">STEPS TO FOLLOW</h4>
+  </div>
+  <div class="row container" align="center" style="padding-top: 5%; margin-left: 7%;" >
+    <div class="col-md-4 col-sm-6" id="sec1" align="center">
+      <div>
+        <span class="glyphicon glyphicon-user" id="glyphicon"></span>
+      </div>
+      <h3 style="color: white;">Sign Up</h3>
+      <p style="color: white; font-size: 16px;">Sign-up now and Send 0.010 ETH to your upline, which will be back after the first referral</p>
+      
+    </div>
+    <div class="col-md-4 col-sm-6" id="sec2" align="center">
+      <div>
+        <span class="glyphicon glyphicon-ok" id="glyphicon"></span>
+      </div>
+      <h3 style="color: white;">Eligibility</h3>
+      <p style="color: white; font-size: 16px;">You just need 2 referrals to be eligible to earn commissions.</p>
+      
+    </div>
+    <div class="col-md-4 col-sm-12" id="sec3" align="center">
+      <div>
+        <span class="glyphicon glyphicon-usd" id="glyphicon"></span>
+      </div>
+      <h3 style="color: white;">Earned</h3>
+      <p style="color: white; font-size: 16px;">Receive your earning to ETH wallet without payment requests</p>
+      
+    </div>
+  </div>
+</section>
+<section id="section1" style="background-color: #3148B0; margin-top: 0%; padding-bottom: 5%; overflow-x: hidden;">
+  <div align="center">
+    <h4 style=" margin: 0%; color: #44BD32; padding-top: 8%;" id="heading4">PRIORITY OF</h4>
+    <h1 style="font-family: monospace; color: white; font-size: 45px;">How It Works</h1>
+    <p style="color: white; font-size: 17px; width: 50%;" align="center">Everyone can have an honest income in an open and transparent system, keeping pace with advanced technology</p>
+  </div>
+  <div  class="row container" align="center" style="padding-top: 5%; margin-left:7%;">
+    <div class="col-md-4 col-sm-6" align="center">
+      <div style="background-color: #1B1576; padding: 0% 10% 0% 10%;" align="center" id="sec4">
+        <span class="glyphicon glyphicon-check" id="glyphicon-section1"></span>
+        <h3 style="color: white;">Risk free</h3>
+        <div>
+          <p style="color: #8C88BA; font-size: 16px; text-align: justify; padding-top: 10%;">It is absolutely risk free! Open source smart contract uploaded to blockchain Ethereum. Cryptocurrency - international and decentralized</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6" align="center">
+      <div style="background-color: #1B1576; padding: 0% 10% 0% 10%;" align="center" id="sec4">
+        <span class="glyphicon glyphicon-download" id="glyphicon-section1"></span>
+        <h3 style="color: white;">Direct payouts</h3>
+        <div>
+          <p style="color: #8C88BA; font-size: 16px; text-align: justify; padding-top: 10%;">Money is not stored in the system. All transactions are 100% from wallets to participants' wallets. Wallets are anonymous</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6" align="center">
+      <div style="background-color: #1B1576; padding: 0% 10% 0% 10%;" align="center" id="sec4">
+        <span class="glyphicon glyphicon-edit" id="glyphicon-section1"></span>
+        <h3 style="color: white;">Easy marketing</h3>
+        <div>
+          <p style="color: #8C88BA; font-size: 16px; text-align: justify; padding-top: 10%;">Easily achievable matrices - 2X3 & 2x4 in 2 Phases lines - Earn 17+ ETH every 100 days</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div  class="row container" align="center" style="padding-top: 5%; margin-left:7%;">
+    <div class="col-md-4 col-sm-6" align="center">
+      <div style="background-color: #1B1576; padding: 0% 10% 0% 10%;" align="center" id="sec4">
+        <span class="glyphicon glyphicon-volume-up" id="glyphicon-section1"></span>
+        <h3 style="color: white;">100% secure</h3>
+        <div>
+          <p style="color: #8C88BA; font-size: 16px; text-align: justify; padding-top: 10%;">It is not possible to change the algorithm or delete the members' rooms. The system is able to work without a site. The site is needed only for convenient display of statistics</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6" align="center">
+      <div style="background-color: #1B1576; padding: 0% 10% 0% 10%;" align="center" id="sec4">
+        <span class="glyphicon glyphicon-zoom-in" id="glyphicon-section1"></span>
+        <h3 style="color: white;">Repeat earning every 100 days</h3>
+        <div>
+          <p style="color: #8C88BA; font-size: 16px; text-align: justify; padding-top: 10%;">With a ready-made team, you can repeat earnings every 100 days, by simply pressing the “repeat” button, earn $3.400 + every 100 days!</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6" align="center">
+      <div style="background-color: #1B1576; padding: 0% 10% 0% 10%;" align="center" id="sec4">
+        <span class="glyphicon glyphicon-tint" id="glyphicon-section1"></span>
+        <h3 style="color: white;">Long term</h3>
+        <div>
+          <p style="color: #8C88BA; font-size: 16px; text-align: justify; padding-top: 10%;">Smart contract will exist as long as the blockchain exists Ethereum, and even the creators of a smart contract will not be able to delete or change its terms</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+</section>
+<section class="parallex1" style="margin-top: 0%; padding-bottom: 5%; overflow-x: hidden;">
+  <div class="container" id="section2">
+  <h1 style="font-family: monospace; color: white; font-size: 45px; margin-top: 8%; margin-bottom: 3%;">Marketing Plans</h1>            
+  <table class="table table-bordered" style="color: white; height: 450px; width: 0 auto;">
+    <thead style="background-color: white; color: #0E6B02; font-size: 21px; font-family: cursive;">
+      <tr>
+        <th>LEVEL OF</th>
+        <th>PRICE IN ETH</th>
+        <th>PARTNERS</th>
+        <th>TOTAL ETH</th>
+        <th>PROFIT</th>
+      </tr>
+    </thead>
+    <tbody style="font-size: 18px;">
+      <tr>
+        <td> 1 </td>
+        <td> 0.006 </td>
+        <td><span class="glyphicon glyphicon-user"></span> 2 </td>
+        <td> 0.012 </td>
+        <td> 0.002 ETH </td>
+      </tr>
+      <tr>
+        <td> 2 </td>
+        <td> 0.01 </td>
+        <td><span class="glyphicon glyphicon-user"></span> 4 </td>
+        <td> 0.04 </td>
+        <td> 0.02 ETH </td>
+      </tr>
+      <tr>
+        <td> 3 </td>
+        <td> 0.02 </td>
+        <td><span class="glyphicon glyphicon-user"></span> 8 </td>
+        <td> 0.16 </td>
+        <td> 0.06 ETH </td>
+      </tr>
+      <tr>
+        <td> 4 </td>
+        <td> 0.1 </td>
+        <td><span class="glyphicon glyphicon-user"></span> 2 </td>
+        <td> 0.2 </td>
+        <td> 0.08 ETH </td>
+      </tr>
+      <tr>
+        <td> 5 </td>
+        <td> 0.12 </td>
+        <td><span class="glyphicon glyphicon-user"></span> 4 </td>
+        <td> 0.48 </td>
+        <td> 0.28 ETH </td>
+      </tr>
+      <tr>
+        <td> 6 </td>
+        <td> 0.2 </td>
+        <td><span class="glyphicon glyphicon-user"></span> 8 </td>
+        <td> 1.6 </td>
+        <td> 0.6 ETH </td>
+      </tr>
+      <tr>
+        <td> 7 </td>
+        <td> 1 </td>
+        <td><span class="glyphicon glyphicon-user"></span> 16 </td>
+        <td> 16 </td>
+        <td> 16 ETH </td>
+      </tr>
+      <tr>
+        <td> TOTAL </td>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td> 17.042 ETH </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><br><br>
+</section>
+<section id="section3" style="background-color: #052146; margin-top: 0%; padding-bottom: 5%;">
+  <div align="center">
+    <h1 style="font-family: monospace; color: white; font-size: 45px; margin: 0%; padding: 8% 0% 2% 0%;">Way It Works</h1>
+    <p style="color: white; font-size: 15px; width: 50%; color: #44BD32" align="center">AQBOT IS AN UNIQUE COMBINATION OF FORCED, TEAM & HYBRID MATRIX. YOU KEEP GETTING REFERRALS FROM EVERYWHERE !</p>
+  </div>
+  <div class="container">
+    <div class="row" style="margin-top: 4%;">
+      <div class="col-md-6 col-sm-12">
+        <img src="images/about1.jpg" style=" width: 100%; border-radius: 3%;">
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div style="margin-top: 5%;">
+        <p style="border: 1px solid white; width: 9%; font-size: 20px; padding: 1.8% 0% 1.8% 0%;  border-radius: 50%; background-color: white; float: left;" align="center">1</p><span style="color: white;  font-size: 32px; margin: .9% 0% 0% 3%;">Forced Matrix</span>
+        </div>
+        <div style="margin-top: 5%; color: white">
+          <p style="text-align: justify; font-size: 17px; letter-spacing: 2px;">
+            A forced matrix is a system where there is a limit to the number of referrals any affiliate can refer. It makes sense to use this feature if you have defined multiple commission tiers. If you have single tier commissions only, it makes no sense to structure your affiliates.It is REQUIRED that you register 2 people or you WILL NOT be qualified to receive ANY Commissions. To get the first level commission, you have to refer minimum 2 people BEFORE someone joins in below you in the tree.
+          </p>
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row" style="margin-top: 4%;">
+      <div class="col-md-6 col-sm-12">
+        <div style="margin-top: 5%;">
+        <p style="border: 1px solid white; width: 9%; font-size: 20px; padding: 1.8% 0% 1.8% 0%;  border-radius: 50%; background-color: white; float: left;" align="center">2</p><span style="color: white;  font-size: 32px; margin: .9% 0% 0% 3%;">Team Matrix</span>
+        </div>
+        <div style="margin-top: 5%; color: white">
+          <p style="text-align: justify; font-size: 17px; letter-spacing: 2px;">
+            In its strictest definition a matrix organization structure is where people have more than one boss. So we could simply define a matrix team as a team where individuals on the team report to more than one boss. You have to activate the first level in this matrix before the person who is below you in the matrix. Watch out the levels of your downlines closely in order to upgrade the level before them to get the commission and NOT to miss them.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <img src="images/about2.jpg" style=" width: 100%; border-radius: 3%;">
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row" style="margin-top: 4%;">
+      <div class="col-md-6 col-sm-12">
+        <img src="images/about3.jpg" style=" width: 100%; border-radius: 3%;">
+      </div>
+      <div class="col-md-6 col-sm-12">
+        <div style="margin-top: 5%;">
+        <p style="border: 1px solid white; width: 9%; font-size: 20px; padding: 1.8% 0% 1.8% 0%;  border-radius: 50%; background-color: white; float: left;" align="center">3</p><span style="color: white;  font-size: 32px; margin: .9% 0% 0% 3%;">Hybrid Matrix</span>
+        </div>
+        <div style="margin-top: 5%; color: white">
+          <p style="text-align: justify; font-size: 17px; letter-spacing: 2px;">
+            Like the Matrix Structure, the Hybrid Structure combines both functional and divisional structure. Instead of grid organization, Hybrid Structure divides its activities into departments that can be either functional or divisional. ... Hybrid Structure is widely adopted by many large organizations. You have to activate the first level in this matrix before the person who is below you in the matrix. Watch out the levels of your downlines closely in order to upgrade the level before them to get the commission and NOT to miss them.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+</section>
+<section style="background-color: #2D41A7; margin-top: 0%; padding-bottom: 5%; padding-top: 10%;">
+  <div class="container" style="border: 1px solid white; border-radius: 8px; color: white; width: 70%;" >
+    <a href="javascript: void(0);" onclick="showhide()" style="color: white; text-decoration: none;">
+    <div>
+      <h3 style="padding: 1% 0% 1.5% 5%; width: 95%; float: left; ">What is AQBot?</h3><span id="plus" class="glyphicon glyphicon-plus" style=" float: right; margin-top: 3.5%; font-size: 20px;"></span>
+    </div>
+    </a>
+    <div style="padding-left: 5%; font-size: 17px;" id="faq"  class="hidden1">
+      <br>
+      <p>AQbot can be divided into 2 concepts:</p>
+      <p>First - a smart contract or cryptocurrency network application Ethereum.</p>
+      <p>The application code is programmed to distribute incoming transfers among participants according to a specific algorithm.</p>
+      <p>Second - This is the site itself, providing an interface for the convenience of working with a smart contract.</p><br>
+    </div>
+  </div>
+  <br><br>
+  <div class="container" style="border: 1px solid white; border-radius: 8px; color: white; width: 70%;" >
+    <a href="javascript: void(0);" onclick="showhide1()" style="color: white; text-decoration: none;">
+    <div>
+      <h3 style="padding: 1% 0% 1.5% 5%; width: 95%; float: left; ">Who is the project administrator?</h3><span id="plus" class="glyphicon glyphicon-plus" style=" float: right; margin-top: 3.5%; font-size: 20px;"></span>
+    </div>
+    </a>
+    <div style="padding-left: 5%; font-size: 17px;" id="faq1"  class="hidden2">
+      <br><br><br><br>
+      <p>There is no administrator at Autoetherbot. There is a creator who uploaded the contract code to the cryptocurrency</p>
+      <p>blockchain Ethereum. Since then, the smart contract has been part of the overall network, which is supported by miners.</p>
+      <p>No one has the right to affect the operation of a smart contract, delete it or stop it. Any attempt to make unauthorized</p>
+      <p>changes will be rejected due to inconsistency with previous copies in the block chain.</p><br>
+    </div>
+  </div>
+  <br><br>
+  <div class="container" style="border: 1px solid white; border-radius: 8px; color: white; width: 70%;" >
+    <a href="javascript: void(0);" onclick="showhide2()" style="color: white; text-decoration: none;">
+    <div>
+      <h3 style="padding: 1% 0% 1.5% 5%; width: 95%; float: left; ">What currency does the project work with?</h3><span id="plus" class="glyphicon glyphicon-plus" style=" float: right; margin-top: 3.5%; font-size: 20px;"></span>
+    </div>
+    </a>
+    <div style="padding-left: 5%; font-size: 17px;" id="faq2"  class="hidden3">
+      <br><br><br><br>
+      <p>Since the smart contract is published in a software environment Ethereum, then, accordingly, participation in the project is possible only with this digital currency.</p><br>
+    </div>
+  </div>
+  <br><br>
+  <div class="container" style="border: 1px solid white; border-radius: 8px; color: white; width: 70%;" >
+    <a href="javascript: void(0);" onclick="showhide3()" style="color: white; text-decoration: none;">
+    <div>
+      <h3 style="padding: 1% 0% 1.5% 5%; width: 95%; float: left; ">Can a transaction remain on the balance of a smart contract?</h3><span id="plus" class="glyphicon glyphicon-plus" style=" float: right; margin-top: 3.5%; font-size: 20px;"></span>
+    </div>
+    </a>
+    <div style="padding-left: 5%; font-size: 17px;" id="faq3"  class="hidden4">
+      <br><br><br><br>
+      <p>Ruled out. The contract was programmed so as not to accumulate funds, but to serve only as a transmitter. The balance of the contract is always zero, anyone can verify this. It simply lacks the function of taking funds to your balance. Any transaction will reach the desired goal safe and sound.</p><br>
+    </div>
+  </div>
+  <br><br>
+  <div class="container" style="border: 1px solid white; border-radius: 8px; color: white; width: 70%;" >
+    <a href="javascript: void(0);" onclick="showhide4()" style="color: white; text-decoration: none;">
+    <div>
+      <h3 style="padding: 1% 0% 1.5% 5%; width: 95%; float: left; ">And if the project collapses, will I lose money?</h3><span id="plus" class="glyphicon glyphicon-plus" style=" float: right; margin-top: 3.5%; font-size: 20px;"></span>
+    </div>
+    </a>
+    <div style="padding-left: 5%; font-size: 17px;" id="faq4"  class="hidden5">
+      <br><br><br><br>
+      <p>Ruled out. The smart contract is absolutely transparent, all data is recorded in the blockchain chain. No scam or fraud. The project cannot fail. It will work as long as the blockchain exists, even if the site is closed.</p><br>
+    </div>
+  </div>
+</section>
+<section style="background-color: #052146; margin-top: 0%; padding-bottom: 5%; padding-top: 10%;">
+  <div align="center">
+    <a href="index.html"><img src="images/logo1.png" style="width: 15%;" ></a><br><br><br>
+    <p style="color: white;">Copyright © 2020 All Rights Reserved</p>
+  </div>
+</section>
+<script>
+  function openNav() {
+  document.getElementById("myNav").style.width = "33%";
+  document.getElementById("myNav1").style.width = "33%";
+  document.getElementById("myNav2").style.width = "34%";
+}
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+  document.getElementById("myNav1").style.width = "0%";
+  document.getElementById("myNav2").style.width = "0%";
+}
+</script>
+<script>
+function openNavmobile() {
+  document.getElementById("myNav-mobile").style.width = "100%";
+  document.getElementById("myNav-mobile").style.height = "33%";
+  document.getElementById("myNav-mobile1").style.width = "100%";
+  document.getElementById("myNav-mobile1").style.height = "33%";
+  document.getElementById("myNav-mobile2").style.width = "100%";
+  document.getElementById("myNav-mobile2").style.height = "34%";
+}
+
+function closeNavmobile() {
+  document.getElementById("myNav-mobile").style.width = "0%";
+  document.getElementById("myNav-mobile1").style.width = "0%";
+  document.getElementById("myNav-mobile2").style.width = "0%";
+}
+</script>
+<script type="text/javascript">
+	function showhide() {
+  var div = document.getElementById("faq");
+  div.classList.toggle('hidden1'); 
+}
+	function showhide1() {
+  var div = document.getElementById("faq1");
+  div.classList.toggle('hidden2'); 
+}
+function showhide2() {
+  var div = document.getElementById("faq2");
+  div.classList.toggle('hidden3'); 
+}
+function showhide3() {
+  var div = document.getElementById("faq3");
+  div.classList.toggle('hidden4'); 
+}
+function showhide4() {
+  var div = document.getElementById("faq4");
+  div.classList.toggle('hidden5'); 
+}
+</script>
+<script src="lib/jquery-1.10.2.min.js"></script>
+<script src="numscroller-1.0.js"></script>
+  <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
